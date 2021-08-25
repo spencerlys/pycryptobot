@@ -10,7 +10,6 @@ from models.Trading import TechnicalAnalysis
 from models.helper.LogHelper import Logger
 from models.PyCryptoBot import PyCryptoBot
 
-app = PyCryptoBot()
 sys.path.append('.')
 
 class TradingGraphs():
@@ -628,7 +627,7 @@ class TradingGraphs():
         try:
             Logger.info('creating: graphs/CSP_' + market + '_' + str(granularity) + '.png')
             plt.savefig('graphs/CSP_' + market + '_' + str(granularity) + '.png', dpi=300)
-            app.docTelegram(market + '_' + str(granularity) + ' 蜡烛线分析', 'graphs/CSP_' + market + '_' + str(granularity) + '.png')
+            PyCryptoBot().docTelegram(market + '_' + str(granularity) + ' 蜡烛线分析', 'graphs/CSP_' + market + '_' + str(granularity) + '.png')
         except OSError:
             raise SystemExit('Unable to save: graphs/CSP_' + market + '_' + str(granularity) + '.png')
 
@@ -681,7 +680,7 @@ class TradingGraphs():
         try:
             Logger.info('creating: graphs/FRL_' + market + '_' + str(granularity) + '.png')
             plt.savefig('graphs/FRL_' + market + '_' + str(granularity) + '.png', dpi=300)
-            app.docTelegram(market + '_' + str(granularity) + ' 斐波那契数列', 'graphs/FRL_' + market + '_' + str(granularity) + '.png')
+            PyCryptoBot().docTelegram(market + '_' + str(granularity) + ' 斐波那契数列', 'graphs/FRL_' + market + '_' + str(granularity) + '.png')
         except OSError:
             raise SystemExit('Unable to save: graphs/FRL_' + market + '_' + str(granularity) + '.png')
 
@@ -741,7 +740,7 @@ class TradingGraphs():
         try:
             Logger.info('creating: graphs/SRL_' + market + '_' + str(granularity) + '.png')
             plt.savefig('graphs/SRL_' + market + '_' + str(granularity) + '.png', dpi=300)
-            app.docTelegram(market + '_' + str(granularity) + ' 支撑与压力位', 'graphs/SRL_' + market + '_' + str(granularity) + '.png')
+            PyCryptoBot().docTelegram(market + '_' + str(granularity) + ' 支撑与压力位', 'graphs/SRL_' + market + '_' + str(granularity) + '.png')
         except OSError:
             raise SystemExit('Unable to save: graphs/SRL_' + market + '_' + str(granularity) + '.png')
 
