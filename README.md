@@ -355,7 +355,7 @@ Special sell cases:
     --disablebullonly                   Disable only buying in bull market
     --disablebuynearhigh                Disable buying within 3% of the dataframe high
     --disablebuymacd                    Disable macd buy signal
- --disablebuyema                     Disable ema buy signal.If both core indicators ema and macd buy signals are disabled, bot won't buy.Doesn't affect sell strategy.
+    --disablebuyema                     Disable ema buy signal.If both core indicators ema and macd buy signals are disabled, bot won't buy.Doesn't affect sell strategy.
     --disablebuyobv                     Disable obv buy signal
     --disablebuyelderray                Disable elder ray buy signal
     --disablefailsafefibonaccilow       Disable failsafe sell on fibonacci lower band
@@ -609,8 +609,11 @@ I've actually included this in the examples in how to start the bot that will do
 
 ## Fun quick non-live demo
 
-    python3 pycryptobot.py --market BTC-GBP --granularity 3600 --sim fast --verbose 0
+    python pycryptobot.py --market BTC-GBP --granularity 3600 --sim fast --verbose 0
 
 If you get stuck with anything email me or raise an issue in the repo and I'll help you sort it out. Raising an issue is probably better as the question and response may help others.
 
 Enjoy and happy trading! :)
+
+    sudo yum install crony ntpstat -y
+    "granularity" : "1h",
