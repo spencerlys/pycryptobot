@@ -1,5 +1,5 @@
 from re import compile as re_compile
-from requests import get, ConnectionError, exceptions, Timeout
+from requests import get, post, ConnectionError, exceptions, Timeout
 
 
 
@@ -46,15 +46,12 @@ class Telegram():
         return json
 
     def sendDoc(self, message='', doc='') -> str:
-        import requests
-
         try:
             escaped_message = message.translate(message.maketrans({"*":  r"\*"}))
             data = {"chat_id": self._client_id, "caption": escaped_message}
             url = self.api + self._token + '/sendPhoto'
             with open(doc, "rb") as image_file:
-                resp = requests.post(url, data=data, files={"photo": image_file})
-            return resp.json()
+                resp = post(url, data=data, files={"photo": image_file})
 
             if resp.status_code != 200:
                 return ''
