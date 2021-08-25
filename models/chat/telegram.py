@@ -44,3 +44,34 @@ class Telegram():
             return ''
 
         return json
+
+    def sendDoc(self, message='', doc='') -> str:
+        import requests
+
+        try:
+            escaped_message = message.translate(message.maketrans({"*":  r"\*"}))
+            data = {"chat_id": self._client_id, "caption": escaped_message}
+            url = self.api + self._token + '/sendPhoto'
+            with open(doc, "rb") as image_file:
+                resp = requests.post(url, data=data, files={"photo": image_file})
+            return resp.json()
+
+            if resp.status_code != 200:
+                return ''
+
+            resp.raise_for_status()
+            json = resp.json()
+
+        except ConnectionError as err:
+            print(err)
+            return ''
+
+        except exceptions.HTTPError as err:
+            print(err)
+            return ''
+
+        except Timeout as err:
+            print(err)
+            return ''
+
+        return json

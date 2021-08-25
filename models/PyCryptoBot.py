@@ -969,6 +969,19 @@ class PyCryptoBot(BotConfig):
 
         self._chat_client.send(msg)
 
+    def docTelegram(self, msg: str, doc: str) -> None:
+        """
+        Send a document to preconfigured Telegram. If the telegram isn't enabled, e.g. via `--disabletelegram`,
+        this method does nothing and returns immediately.
+        """
+
+        if self.disabletelegram or not self.telegram:
+            return
+
+        assert self._chat_client is not None
+
+        self._chat_client.sendDoc(msg, doc)
+
     def _generate_banner(self) -> None:
         textBox = TextBox(80, 26)
         textBox.singleLine()
