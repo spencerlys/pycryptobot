@@ -1,6 +1,6 @@
 [![Docker](https://github.com/whittlem/pycryptobot/actions/workflows/container.yml/badge.svg)](https://github.com/whittlem/pycryptobot/actions/workflows/container.yml/badge.svg) [![Tests](https://github.com/whittlem/pycryptobot/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/whittlem/pycryptobot/actions/workflows/unit-tests.yml/badge.svg)
 
-# Python Crypto Bot v3.2.15 (pycryptobot)
+# Python Crypto Bot v3.3.1 (pycryptobot)
 
 ## Join our chat on Telegram
 
@@ -325,6 +325,10 @@ Buy signal:
 * Elder Ray Buy is True <-- bull market detection
 
 The bot will only trade in a bull market to minimise losses! (you can disable this)
+
+Special buy cases:
+
+* "buynearhighpcnt" to specify the percentage from high that the bot should not buy if "disablebuynearhigh" is not specified.
 
 Sell signal:
 
